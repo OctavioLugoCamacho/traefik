@@ -15,4 +15,6 @@ defmodule Traefik do
   def hello do
     :world
   end
+
+  IO.puts("Hola")
 end
