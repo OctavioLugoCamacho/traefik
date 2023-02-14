@@ -2,6 +2,7 @@ defmodule Traefik.Handler do
   def handle(request) do
     request
     |> parse()
+    |> log()
     |> route()
     |> format_response()
   end
@@ -15,6 +16,8 @@ defmodule Traefik.Handler do
 
     %{method: method, path: path, response: ""}
   end
+
+  def log(conn), do: IO.inspect(conn, label: "Logger")
 
   def route(conn) do
     route(conn, conn.method, conn.path)
