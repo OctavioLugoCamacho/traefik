@@ -6,40 +6,53 @@ defmodule Traefik.Handler do
     |> format_response()
   end
 
-  def parse(_request) do
-    %{method: "GET", path: "/hello", response: ""}
+  def parse(request) do
+    [method, path, _protocol] =
+      request
+      |> String.split("\n")
+      |> List.first()
+      |> String.split(" ")
+
+    %{method: method, path: path, response: ""}
   end
 
-  def route(_conn) do
-    %{method: "GET", path: "/hello", response: "Hello World"}
+  def route(conn) do
+    route(conn, conn.method, conn.path)
   end
 
-  def format_response(_conn) do
+  def route(conn, "GET", "/hello") do
+    %{ conn | response: "Hello World!😎"}
+  end
+
+  def route(conn, "GET", "/world") do
+    %{ conn | response: "Hello MakingDevs!🤓"}
+  end
+
+  def format_response(conn) do
     """
     HTTP/1.1 200 OK
     Host: some.com
     User-Agent: telnet
+    Content-Lenght: #{String.length(conn.response)}
     Accept: */*
-
-    Hello World
+    #{conn.response}
     """
   end
 end
 
-request = """
+request_1 = """
 GET /hello HTTP/1.1
 Accept: */*
 Connection: keep-alive
-User-Agent: HTTPie/3.2.1
-"""
-
-_response = """
-HTTP/1.1 200 OK
-Host: some.com
 User-Agent: telnet
-Accept: */*
-
-Hello World
 """
 
-IO.puts(Traefik.Handler.handle(request))
+request_2 = """
+GET /world HTTP/1.1
+Accept: */*
+Connection: keep-alive
+User-Agent: telnet
+"""
+IO.puts(Traefik.Handler.handle(request_1))
+IO.puts("\n########")
+IO.puts(Traefik.Handler.handle(request_2))
