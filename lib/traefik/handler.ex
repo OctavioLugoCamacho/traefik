@@ -54,5 +54,5 @@ Connection: keep-alive
 User-Agent: telnet
 """
 IO.puts(Traefik.Handler.handle(request_1))
-IO.puts("\n########")
+IO.puts("\n")
 IO.puts(Traefik.Handler.handle(request_2))
