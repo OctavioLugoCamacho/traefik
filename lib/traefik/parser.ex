@@ -7,9 +7,9 @@ defmodule Traefik.Parser do
 
     [method, path, _protocol] = String.split(request_line, " ")
 
-    params = URI.decode_query(params_string)
-
     headers = parse_headers(headers_string, %{})
+
+    params = parse_params(headers["Content-Type"], params_string)
 
     %Conn{
       method: method,
@@ -27,4 +27,10 @@ defmodule Traefik.Parser do
   end
 
   def parse_headers([], headers), do: headers
+
+  def parse_params("application/x-www-form-urlencoded", params_string) do
+    URI.decode_query(params_string)
+  end
+
+  def parse_params(_, _), do: %{}
 end
