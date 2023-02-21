@@ -29,8 +29,8 @@ defmodule Traefik.Handler do
     %{ conn | status: 200, response: "Hello MakingDevs!🤓"}
   end
 
-  def route(%Conn{method: "GET", path: "/all"} = conn) do
-    %{conn | status: 200, response: "All developers greetings!🤙"}
+  def route(%Conn{method: "GET", path: "/developer"} = conn) do
+    Traefik.DeveloperController.index(conn)
   end
 
   def route(%Conn{method: "POST", path: "/new", params: params} = conn) do
@@ -138,6 +138,15 @@ User-Agent: telnet
 name=Octavio&company=MakingDevs
 """
 
+request_7 = """
+GET /developer HTTP/1.1
+Accept: */*
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+User-Agent: telnet
+
+"""
+
 IO.puts(Traefik.Handler.handle(request_1))
 IO.puts("\n")
 IO.puts(Traefik.Handler.handle(request_2))
@@ -149,3 +158,5 @@ IO.puts("\n")
 IO.puts(Traefik.Handler.handle(request_5))
 IO.puts("\n")
 IO.puts(Traefik.Handler.handle(request_6))
+IO.puts("\n")
+IO.puts(Traefik.Handler.handle(request_7))

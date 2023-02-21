@@ -9,6 +9,7 @@ defmodule Traefik.Organization do
     |> Kernel.tl()
     |> Enum.map(&String.split(&1, ","))
     |> Enum.map(&transform_developer/1)
+    |> Enum.filter(&(&1 != nil))
   end
 
   def get_developer(id) when is_binary(id) do
