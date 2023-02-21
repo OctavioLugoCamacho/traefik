@@ -8,6 +8,13 @@ defmodule Traefik.DeveloperController do
       |> Enum.map(&("<li>#{&1.id} - #{&1.first_name}</li> "))
       |>Enum.join("\n")
 
-    %{conn | response: developers}
+    developers =
+      """
+      <ul>
+        #{developers}
+      </ul>
+      """
+
+    %{conn | response: developers, status: 200}
   end
 end
