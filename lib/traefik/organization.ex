@@ -10,6 +10,7 @@ defmodule Traefik.Organization do
     |> Enum.map(&String.split(&1, ","))
     |> Enum.map(&transform_developer/1)
     |> Enum.filter(&(&1 != nil))
+    |> Enum.drop(params.limit * params.offset)
     |> Enum.take(params.limit)
   end
 
