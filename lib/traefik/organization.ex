@@ -2,13 +2,15 @@ defmodule Traefik.Organization do
   alias Traefik.Developer
   @devs_file Path.expand("./") |> Path.join("MOCK_DATA.csv")
 
-  def list_developers(_params \\ %{}) do
+  def list_developers(params \\ %{limit: 100, offset: 0}) do
     @devs_file
     |> File.read!()
     |> String.split("\n")
     |> Kernel.tl()
     |> Enum.map(&String.split(&1, ","))
     |> Enum.map(&transform_developer/1)
+    |> Enum.drop(params.offset)
+    |> Enum.take(params.limit)
     |> Enum.filter(&(&1 != nil))
   end
 
