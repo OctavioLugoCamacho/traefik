@@ -42,7 +42,7 @@ defmodule Traefik.Handler do
     %{
       conn
       | status: 201,
-        response: "New element created: #{params["name"]} from #{params["company"]} 🆗"
+        response: "New element created: #{params["name"]} from #{params["company"]}🆗"
     }
   end
 
