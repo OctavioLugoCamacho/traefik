@@ -2,7 +2,7 @@ defmodule Traefik.Organization do
   alias Traefik.Developer
   @devs_file Path.expand("./") |> Path.join("MOCK_DATA.csv")
 
-  def list_developers(params \\ %{limit: 5, offset: 0}) do
+  def list_developers(_params \\ %{}) do
     @devs_file
     |> File.read!()
     |> String.split("\n")
@@ -10,8 +10,6 @@ defmodule Traefik.Organization do
     |> Enum.map(&String.split(&1, ","))
     |> Enum.map(&transform_developer/1)
     |> Enum.filter(&(&1 != nil))
-    |> Enum.drop(params.limit * params.offset)
-    |> Enum.take(params.limit)
   end
 
   def get_developer(id) when is_binary(id) do
