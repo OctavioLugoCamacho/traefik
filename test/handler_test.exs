@@ -22,6 +22,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: text/html
            Content-Lenght: 13
            Accept: */*
+
            Hello World!😎
            """
   end
@@ -45,6 +46,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: text/html
            Content-Lenght: 18
            Accept: */*
+
            Hello MakingDevs!🤓
            """
   end
@@ -68,6 +70,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: text/html
            Content-Lenght: 21
            Accept: */*
+
            No /not-found found!😰
            """
   end
@@ -91,6 +94,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: text/html
            Content-Lenght: 15
            Accept: */*
+
            No /all found!😰
            """
   end
@@ -114,6 +118,7 @@ defmodule Traefik.HandlerTest do
     Content-Type: text/html
     Content-Lenght: 140
     Accept: */*
+
     <h1>Octavio Test</h1>
     <p>
     <blockquote>My favorite bands!</blockquote>
@@ -146,6 +151,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: text/html
            Content-Lenght: 46
            Accept: */*
+
            New element created: Octavio from MakingDevs
            🆗
            """
@@ -170,6 +176,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: text/html
            Content-Lenght: 158
            Accept: */*
+
            <ul>
 
            <li>1 - Jerri Rubertis</li>
@@ -205,6 +212,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: text/html
            Content-Lenght: 52
            Accept: */*
+
            17 - Slade - Sams - ssamsg@ucoz.com - 157.180.106.51
            """
   end
@@ -227,6 +235,7 @@ defmodule Traefik.HandlerTest do
            Content-Type: application/json
            Content-Lenght: 1326
            Accept: */*
+
            [{\"email\":\"jrubertis0@nytimes.com\",\"first_name\":\"Jerri\",\"gender\":\"Male\",\"id\":1,\"ip_address\":\"206.67.100.126\",\"last_name\":\"Rubertis\"},{\"email\":\"lgepson1@amazon.com\",\"first_name\":\"Lief\",\"gender\":\"Male\",\"id\":2,\"ip_address\":\"235.91.3.49\",\"last_name\":\"Gepson\"},{\"email\":\"vvanhalle2@quantcast.com\",\"first_name\":\"Viki\",\"gender\":\"Female\",\"id\":3,\"ip_address\":\"53.76.94.126\",\"last_name\":\"Van Halle\"},{\"email\":\"mdubose3@ftc.gov\",\"first_name\":\"Maribelle\",\"gender\":\"Female\",\"id\":4,\"ip_address\":\"107.46.58.239\",\"last_name\":\"Dubose\"},{\"email\":\"vklarzynski4@mtv.com\",\"first_name\":\"Vivian\",\"gender\":\"Agender\",\"id\":5,\"ip_address\":\"7.247.165.222\",\"last_name\":\"Klarzynski\"},{\"email\":\"hbedome5@slashdot.org\",\"first_name\":\"Helyn\",\"gender\":\"Genderqueer\",\"id\":6,\"ip_address\":\"24.241.90.151\",\"last_name\":\"Bedome\"},{\"email\":\"lsidney6@technorati.com\",\"first_name\":\"Lyndsay\",\"gender\":\"Female\",\"id\":7,\"ip_address\":\"54.172.132.20\",\"last_name\":\"Sidney\"},{\"email\":\"epoluzzi7@exblog.jp\",\"first_name\":\"Emmye\",\"gender\":\"Female\",\"id\":8,\"ip_address\":\"83.213.206.127\",\"last_name\":\"Poluzzi\"},{\"email\":\"bfitzsymons8@pen.io\",\"first_name\":\"Barn\",\"gender\":\"Male\",\"id\":9,\"ip_address\":\"117.249.1.245\",\"last_name\":\"Fitzsymons\"},{\"email\":\"amuggleston9@livejournal.com\",\"first_name\":\"Adelheid\",\"gender\":\"Female\",\"id\":10,\"ip_address\":\"91.155.84.10\",\"last_name\":\"Muggleston\"}]
            """
   end

@@ -5,7 +5,7 @@ defmodule Traefik.Handler do
 
   @files_path Path.expand("../../pages", __DIR__)
 
-  import Traefik.Plugs, only: [rewrite_path: 1, log: 1, track: 1]
+  import Traefik.Plugs, only: [rewrite_path: 1, track: 1]
   import Traefik.Parser, only: [parse: 1]
   alias Traefik.Conn
   alias Traefik.DeveloperController
@@ -84,6 +84,7 @@ defmodule Traefik.Handler do
     Content-Type: #{conn.content_type}
     Content-Lenght: #{String.length(conn.response)}
     Accept: */*
+
     #{conn.response}
     """
   end
