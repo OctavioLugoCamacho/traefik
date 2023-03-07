@@ -45,7 +45,7 @@ defmodule Traefik.PoolQueue do
   end
 
   def handle_info({:DOWN, _ref, :process, pid, :killed}, queue) do
-    IO.inspect("DOWN for #{pid}")
+    IO.inspect("DOWN for #{inspect(pid)}")
 
     queue
     |> Enum.find(fn %{pid: n_pid} -> n_pid == pid end)
