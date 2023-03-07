@@ -11,7 +11,11 @@ defmodule Traefik.PoolQueue do
   end
 
   def get_pid, do: GenServer.call(__MODULE__, :get_pid)
-  def add_pid(pid), do: GenServer.cast(__MODULE__, {:in, pid})
+
+  def add_pid(worker_module) do
+    {:ok, pid} = :erlang.apply(worker_module, :start_link, [[]])
+    GenServer.cast(__MODULE__, {:in, pid})
+  end
 
   def init([]), do: {:ok, []}
   def handle_call(:get, _from, queue), do: {:reply, {:ok, queue}, queue}
