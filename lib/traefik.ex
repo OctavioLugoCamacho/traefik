@@ -16,5 +16,5 @@ defmodule Traefik do
     :world
   end
 
-  IO.puts("Test config commits")
+  IO.puts("Test config commits again")
 end
